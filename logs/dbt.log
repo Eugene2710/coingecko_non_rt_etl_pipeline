@@ -1,0 +1,2270 @@
+[0m23:05:56.773526 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f46600>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1115dea50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1115de750>]}
+
+
+============================== 23:05:56.796944 | 76c0f599-f643-492d-b42e-54ab9af8775e ==============================
+[0m23:05:56.796944 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:05:56.797393 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run --select query_prices', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:05:58.528954 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054d2990>]}
+[0m23:05:58.553439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1060c8140>]}
+[0m23:05:58.554408 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:05:58.615093 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:05:58.615830 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m23:05:58.616125 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11207c800>]}
+[0m23:05:59.051173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11207f8c0>]}
+[0m23:05:59.118973 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11226d1c0>]}
+[0m23:05:59.119271 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:05:59.119446 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102f47140>]}
+[0m23:05:59.120234 [info ] [MainThread]: 
+[0m23:05:59.120512 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:05:59.120924 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:05:59.167459 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:05:59.167759 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:05:59.167923 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:05:59.188091 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.020 seconds
+[0m23:05:59.188991 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:05:59.191177 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:05:59.194294 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:05:59.194518 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:05:59.194654 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:05:59.198848 [debug] [ThreadPool]: SQL status: BEGIN in 0.004 seconds
+[0m23:05:59.199049 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:05:59.199213 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:05:59.215182 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.016 seconds
+[0m23:05:59.216362 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:05:59.217024 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:05:59.219640 [debug] [MainThread]: Using postgres connection "master"
+[0m23:05:59.219812 [debug] [MainThread]: On master: BEGIN
+[0m23:05:59.219933 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:05:59.223743 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:05:59.223976 [debug] [MainThread]: Using postgres connection "master"
+[0m23:05:59.224212 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:05:59.245940 [debug] [MainThread]: SQL status: SELECT 0 in 0.021 seconds
+[0m23:05:59.246781 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1121fa450>]}
+[0m23:05:59.247191 [debug] [MainThread]: On master: ROLLBACK
+[0m23:05:59.247722 [debug] [MainThread]: Using postgres connection "master"
+[0m23:05:59.247918 [debug] [MainThread]: On master: BEGIN
+[0m23:05:59.248348 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:05:59.248518 [debug] [MainThread]: On master: COMMIT
+[0m23:05:59.248647 [debug] [MainThread]: Using postgres connection "master"
+[0m23:05:59.248766 [debug] [MainThread]: On master: COMMIT
+[0m23:05:59.249015 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:05:59.249142 [debug] [MainThread]: On master: Close
+[0m23:05:59.249382 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:05:59.249536 [info ] [MainThread]: 
+[0m23:05:59.250846 [debug] [Thread-1 (]: Began running node model.allium_project.query_prices
+[0m23:05:59.251114 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.query_prices ......................... [RUN]
+[0m23:05:59.251336 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.query_prices)
+[0m23:05:59.251492 [debug] [Thread-1 (]: Began compiling node model.allium_project.query_prices
+[0m23:05:59.255310 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.query_prices"
+[0m23:05:59.255870 [debug] [Thread-1 (]: Began executing node model.allium_project.query_prices
+[0m23:05:59.273794 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.query_prices"
+[0m23:05:59.274625 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:05:59.274848 [debug] [Thread-1 (]: On model.allium_project.query_prices: BEGIN
+[0m23:05:59.275039 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:05:59.278802 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:05:59.279046 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:05:59.279239 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+
+  create view "coingecko"."prices_schema"."query_prices__dbt_tmp"
+    
+    
+  as (
+    WITH input_param AS (
+    SELECT
+        'sui'::TEXT AS blockchain,
+        '0x549e8b69270defbfafd4f94e17ec44cdbdd99820b33bda2278dea3b9a32d3f55::cert::CERT'::TEXT AS contract_address,
+        '2024-01-01 00:00:00'::TIMESTAMP AS start_date,
+        '2024-11-30 23:59:59'::TIMESTAMP AS end_date
+),
+transcoded_token_id AS (
+    SELECT coin_id
+    FROM prices_schema.coin_mapping_table c
+    JOIN input_param i ON c.blockchain = i.chain AND c.contract_address = i.contract_address
+)
+SELECT
+    p.coin_id,
+    date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' * FLOOR(EXTRACT(MINUTE FROM p.time_of_price)::INT / 5) AS time_of_price,
+    p.price
+FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.coin_id = t.coin_id
+JOIN input_param i ON TRUE
+WHERE p.time_of_price BETWEEN i.start_date AND i.end_date
+ORDER BY timestamp
+  );
+[0m23:05:59.280875 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column i.chain does not exist
+LINE 17:     JOIN input_param i ON c.blockchain = i.chain AND c.contr...
+                                                  ^
+
+[0m23:05:59.281105 [debug] [Thread-1 (]: On model.allium_project.query_prices: ROLLBACK
+[0m23:05:59.281418 [debug] [Thread-1 (]: On model.allium_project.query_prices: Close
+[0m23:05:59.283876 [debug] [Thread-1 (]: Database Error in model query_prices (models/query_prices.sql)
+  column i.chain does not exist
+  LINE 17:     JOIN input_param i ON c.blockchain = i.chain AND c.contr...
+                                                    ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:05:59.284694 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '76c0f599-f643-492d-b42e-54ab9af8775e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1138622d0>]}
+[0m23:05:59.285023 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model prices_schema.query_prices ................ [[31mERROR[0m in 0.03s]
+[0m23:05:59.285300 [debug] [Thread-1 (]: Finished running node model.allium_project.query_prices
+[0m23:05:59.286273 [debug] [MainThread]: Using postgres connection "master"
+[0m23:05:59.286493 [debug] [MainThread]: On master: BEGIN
+[0m23:05:59.286640 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:05:59.291320 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m23:05:59.291555 [debug] [MainThread]: On master: COMMIT
+[0m23:05:59.291700 [debug] [MainThread]: Using postgres connection "master"
+[0m23:05:59.291826 [debug] [MainThread]: On master: COMMIT
+[0m23:05:59.292086 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:05:59.292211 [debug] [MainThread]: On master: Close
+[0m23:05:59.292407 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:05:59.292523 [debug] [MainThread]: Connection 'model.allium_project.query_prices' was properly closed.
+[0m23:05:59.292660 [info ] [MainThread]: 
+[0m23:05:59.292805 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m23:05:59.293113 [debug] [MainThread]: Command end result
+[0m23:05:59.306498 [info ] [MainThread]: 
+[0m23:05:59.306775 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:05:59.306931 [info ] [MainThread]: 
+[0m23:05:59.307126 [error] [MainThread]:   Database Error in model query_prices (models/query_prices.sql)
+  column i.chain does not exist
+  LINE 17:     JOIN input_param i ON c.blockchain = i.chain AND c.contr...
+                                                    ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:05:59.307265 [info ] [MainThread]: 
+[0m23:05:59.307410 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m23:05:59.319294 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 2.5813787, "process_in_blocks": "0", "process_kernel_time": 0.415933, "process_mem_max_rss": "135004160", "process_out_blocks": "0", "process_user_time": 1.984784}
+[0m23:05:59.319660 [debug] [MainThread]: Command `dbt run` failed at 23:05:59.319605 after 2.58 seconds
+[0m23:05:59.319883 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102f46b70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1121f95e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1121e5820>]}
+[0m23:05:59.320092 [debug] [MainThread]: Flushing usage events
+[0m23:06:38.569732 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1043643e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105469f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105469c40>]}
+
+
+============================== 23:06:38.573207 | 141896b2-1486-4526-8d77-09de922dcbd2 ==============================
+[0m23:06:38.573207 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:06:38.573544 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --select query_prices', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m23:06:38.713255 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054a0890>]}
+[0m23:06:38.745921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103009e20>]}
+[0m23:06:38.748555 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:06:38.810884 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:06:38.863224 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:06:38.863623 [debug] [MainThread]: Partial parsing: updated file: allium_project://models/query_prices.sql
+[0m23:06:38.965146 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1066fb590>]}
+[0m23:06:39.003946 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1066e6330>]}
+[0m23:06:39.004338 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:06:39.004589 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1066faea0>]}
+[0m23:06:39.005367 [info ] [MainThread]: 
+[0m23:06:39.005634 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:06:39.006048 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:06:39.034196 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:06:39.034462 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:06:39.034638 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:06:39.051341 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.017 seconds
+[0m23:06:39.052192 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:06:39.054293 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:06:39.057959 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:06:39.058164 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:06:39.058299 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:06:39.062814 [debug] [ThreadPool]: SQL status: BEGIN in 0.004 seconds
+[0m23:06:39.063050 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:06:39.063239 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:06:39.067667 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.004 seconds
+[0m23:06:39.068449 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:06:39.068829 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:06:39.071272 [debug] [MainThread]: Using postgres connection "master"
+[0m23:06:39.071486 [debug] [MainThread]: On master: BEGIN
+[0m23:06:39.071614 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:06:39.075711 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:06:39.075945 [debug] [MainThread]: Using postgres connection "master"
+[0m23:06:39.076169 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:06:39.102393 [debug] [MainThread]: SQL status: SELECT 0 in 0.026 seconds
+[0m23:06:39.103359 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10597fec0>]}
+[0m23:06:39.103689 [debug] [MainThread]: On master: ROLLBACK
+[0m23:06:39.104089 [debug] [MainThread]: Using postgres connection "master"
+[0m23:06:39.104288 [debug] [MainThread]: On master: BEGIN
+[0m23:06:39.104629 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:06:39.104802 [debug] [MainThread]: On master: COMMIT
+[0m23:06:39.104938 [debug] [MainThread]: Using postgres connection "master"
+[0m23:06:39.105059 [debug] [MainThread]: On master: COMMIT
+[0m23:06:39.105251 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:06:39.105374 [debug] [MainThread]: On master: Close
+[0m23:06:39.105602 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:06:39.105750 [info ] [MainThread]: 
+[0m23:06:39.107262 [debug] [Thread-1 (]: Began running node model.allium_project.query_prices
+[0m23:06:39.107735 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.query_prices ......................... [RUN]
+[0m23:06:39.108026 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.query_prices)
+[0m23:06:39.108207 [debug] [Thread-1 (]: Began compiling node model.allium_project.query_prices
+[0m23:06:39.112215 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.query_prices"
+[0m23:06:39.112690 [debug] [Thread-1 (]: Began executing node model.allium_project.query_prices
+[0m23:06:39.129313 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.query_prices"
+[0m23:06:39.129805 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:06:39.129981 [debug] [Thread-1 (]: On model.allium_project.query_prices: BEGIN
+[0m23:06:39.130127 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:06:39.133847 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:06:39.134009 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:06:39.134182 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+
+  create view "coingecko"."prices_schema"."query_prices__dbt_tmp"
+    
+    
+  as (
+    WITH input_param AS (
+    SELECT
+        'sui'::TEXT AS blockchain,
+        '0x549e8b69270defbfafd4f94e17ec44cdbdd99820b33bda2278dea3b9a32d3f55::cert::CERT'::TEXT AS contract_address,
+        '2024-01-01 00:00:00'::TIMESTAMP AS start_date,
+        '2024-11-30 23:59:59'::TIMESTAMP AS end_date
+),
+transcoded_token_id AS (
+    SELECT coin_id
+    FROM prices_schema.coin_mapping_table c
+    JOIN input_param i ON c.blockchain = i.blockchain AND c.contract_address = i.contract_address
+)
+SELECT
+    p.coin_id,
+    date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' * FLOOR(EXTRACT(MINUTE FROM p.time_of_price)::INT / 5) AS time_of_price,
+    p.price
+FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.coin_id = t.coin_id
+JOIN input_param i ON TRUE
+WHERE p.time_of_price BETWEEN i.start_date AND i.end_date
+ORDER BY timestamp
+  );
+[0m23:06:39.136269 [debug] [Thread-1 (]: Postgres adapter: Postgres error: relation "transcoded_coin_id" does not exist
+LINE 23: FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.c...
+                                          ^
+
+[0m23:06:39.136601 [debug] [Thread-1 (]: On model.allium_project.query_prices: ROLLBACK
+[0m23:06:39.137038 [debug] [Thread-1 (]: On model.allium_project.query_prices: Close
+[0m23:06:39.141589 [debug] [Thread-1 (]: Database Error in model query_prices (models/query_prices.sql)
+  relation "transcoded_coin_id" does not exist
+  LINE 23: FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.c...
+                                            ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:06:39.142442 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '141896b2-1486-4526-8d77-09de922dcbd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105a3f0e0>]}
+[0m23:06:39.142818 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model prices_schema.query_prices ................ [[31mERROR[0m in 0.03s]
+[0m23:06:39.143198 [debug] [Thread-1 (]: Finished running node model.allium_project.query_prices
+[0m23:06:39.144195 [debug] [MainThread]: Using postgres connection "master"
+[0m23:06:39.144355 [debug] [MainThread]: On master: BEGIN
+[0m23:06:39.144479 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:06:39.148379 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:06:39.148629 [debug] [MainThread]: On master: COMMIT
+[0m23:06:39.148776 [debug] [MainThread]: Using postgres connection "master"
+[0m23:06:39.148900 [debug] [MainThread]: On master: COMMIT
+[0m23:06:39.149117 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:06:39.149270 [debug] [MainThread]: On master: Close
+[0m23:06:39.149467 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:06:39.149591 [debug] [MainThread]: Connection 'model.allium_project.query_prices' was properly closed.
+[0m23:06:39.149730 [info ] [MainThread]: 
+[0m23:06:39.149878 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.14 seconds (0.14s).
+[0m23:06:39.150284 [debug] [MainThread]: Command end result
+[0m23:06:39.163333 [info ] [MainThread]: 
+[0m23:06:39.163612 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:06:39.163767 [info ] [MainThread]: 
+[0m23:06:39.163957 [error] [MainThread]:   Database Error in model query_prices (models/query_prices.sql)
+  relation "transcoded_coin_id" does not exist
+  LINE 23: FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.c...
+                                            ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:06:39.164099 [info ] [MainThread]: 
+[0m23:06:39.164238 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m23:06:39.165929 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.62834775, "process_in_blocks": "0", "process_kernel_time": 0.191093, "process_mem_max_rss": "123600896", "process_out_blocks": "0", "process_user_time": 1.012481}
+[0m23:06:39.166262 [debug] [MainThread]: Command `dbt run` failed at 23:06:39.166209 after 0.63 seconds
+[0m23:06:39.166482 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f943e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105a3ff20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1066a4050>]}
+[0m23:06:39.166664 [debug] [MainThread]: Flushing usage events
+[0m23:07:26.798932 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109358cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10946a060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109469d30>]}
+
+
+============================== 23:07:26.802685 | f6c130bd-4911-432f-ab23-d07011d07a2c ==============================
+[0m23:07:26.802685 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:07:26.803141 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --select query_prices', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m23:07:26.920740 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b21fec0>]}
+[0m23:07:26.945755 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10944e8d0>]}
+[0m23:07:26.946374 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:07:27.002684 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:07:27.054598 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:07:27.055084 [debug] [MainThread]: Partial parsing: updated file: allium_project://models/query_prices.sql
+[0m23:07:27.160098 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b5045f0>]}
+[0m23:07:27.203454 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b6899a0>]}
+[0m23:07:27.203775 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:07:27.203958 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b4306e0>]}
+[0m23:07:27.204858 [info ] [MainThread]: 
+[0m23:07:27.205292 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:07:27.205823 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:07:27.237493 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:07:27.237765 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:07:27.238081 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:07:27.258063 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.020 seconds
+[0m23:07:27.258995 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:07:27.261298 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:07:27.265295 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:07:27.265496 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:07:27.265629 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:07:27.271596 [debug] [ThreadPool]: SQL status: BEGIN in 0.006 seconds
+[0m23:07:27.271871 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:07:27.272054 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:07:27.276864 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.005 seconds
+[0m23:07:27.277686 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:07:27.277990 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:07:27.280378 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:27.280539 [debug] [MainThread]: On master: BEGIN
+[0m23:07:27.280659 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:07:27.283837 [debug] [MainThread]: SQL status: BEGIN in 0.003 seconds
+[0m23:07:27.283996 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:27.284171 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:07:27.294963 [debug] [MainThread]: SQL status: SELECT 0 in 0.011 seconds
+[0m23:07:27.295799 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b21cd40>]}
+[0m23:07:27.296099 [debug] [MainThread]: On master: ROLLBACK
+[0m23:07:27.296448 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:27.296674 [debug] [MainThread]: On master: BEGIN
+[0m23:07:27.297075 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:07:27.297229 [debug] [MainThread]: On master: COMMIT
+[0m23:07:27.297357 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:27.297482 [debug] [MainThread]: On master: COMMIT
+[0m23:07:27.297680 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:07:27.297806 [debug] [MainThread]: On master: Close
+[0m23:07:27.298022 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:07:27.298187 [info ] [MainThread]: 
+[0m23:07:27.299555 [debug] [Thread-1 (]: Began running node model.allium_project.query_prices
+[0m23:07:27.299916 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.query_prices ......................... [RUN]
+[0m23:07:27.300189 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.query_prices)
+[0m23:07:27.300359 [debug] [Thread-1 (]: Began compiling node model.allium_project.query_prices
+[0m23:07:27.304152 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.query_prices"
+[0m23:07:27.304758 [debug] [Thread-1 (]: Began executing node model.allium_project.query_prices
+[0m23:07:27.321857 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.query_prices"
+[0m23:07:27.322326 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:07:27.322492 [debug] [Thread-1 (]: On model.allium_project.query_prices: BEGIN
+[0m23:07:27.322640 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:07:27.327634 [debug] [Thread-1 (]: SQL status: BEGIN in 0.005 seconds
+[0m23:07:27.327871 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:07:27.328067 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+
+  create view "coingecko"."prices_schema"."query_prices__dbt_tmp"
+    
+    
+  as (
+    WITH input_param AS (
+    SELECT
+        'sui'::TEXT AS blockchain,
+        '0x549e8b69270defbfafd4f94e17ec44cdbdd99820b33bda2278dea3b9a32d3f55::cert::CERT'::TEXT AS contract_address,
+        '2024-01-01 00:00:00'::TIMESTAMP AS start_date,
+        '2024-11-30 23:59:59'::TIMESTAMP AS end_date
+),
+transcoded_coin_id AS (
+    SELECT coin_id
+    FROM prices_schema.coin_mapping_table c
+    JOIN input_param i ON c.blockchain = i.blockchain AND c.contract_address = i.contract_address
+)
+SELECT
+    p.coin_id,
+    date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' * FLOOR(EXTRACT(MINUTE FROM p.time_of_price)::INT / 5) AS time_of_price,
+    p.price
+FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.coin_id = t.coin_id
+JOIN input_param i ON TRUE
+WHERE p.time_of_price BETWEEN i.start_date AND i.end_date
+ORDER BY timestamp
+  );
+[0m23:07:27.330335 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column p.timestamp does not exist
+LINE 21:     date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' *...
+                                ^
+
+[0m23:07:27.330587 [debug] [Thread-1 (]: On model.allium_project.query_prices: ROLLBACK
+[0m23:07:27.330929 [debug] [Thread-1 (]: On model.allium_project.query_prices: Close
+[0m23:07:27.335611 [debug] [Thread-1 (]: Database Error in model query_prices (models/query_prices.sql)
+  column p.timestamp does not exist
+  LINE 21:     date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' *...
+                                  ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:07:27.336431 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6c130bd-4911-432f-ab23-d07011d07a2c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b6fa480>]}
+[0m23:07:27.336850 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model prices_schema.query_prices ................ [[31mERROR[0m in 0.04s]
+[0m23:07:27.337330 [debug] [Thread-1 (]: Finished running node model.allium_project.query_prices
+[0m23:07:27.338294 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:27.338485 [debug] [MainThread]: On master: BEGIN
+[0m23:07:27.338621 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:07:27.342488 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:07:27.342668 [debug] [MainThread]: On master: COMMIT
+[0m23:07:27.342786 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:27.342894 [debug] [MainThread]: On master: COMMIT
+[0m23:07:27.343083 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:07:27.343210 [debug] [MainThread]: On master: Close
+[0m23:07:27.343375 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:07:27.343486 [debug] [MainThread]: Connection 'model.allium_project.query_prices' was properly closed.
+[0m23:07:27.343613 [info ] [MainThread]: 
+[0m23:07:27.343749 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.14 seconds (0.14s).
+[0m23:07:27.344046 [debug] [MainThread]: Command end result
+[0m23:07:27.357602 [info ] [MainThread]: 
+[0m23:07:27.357929 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:07:27.358088 [info ] [MainThread]: 
+[0m23:07:27.358285 [error] [MainThread]:   Database Error in model query_prices (models/query_prices.sql)
+  column p.timestamp does not exist
+  LINE 21:     date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' *...
+                                  ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:07:27.358430 [info ] [MainThread]: 
+[0m23:07:27.358578 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m23:07:27.360127 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.5979251, "process_in_blocks": "0", "process_kernel_time": 0.180269, "process_mem_max_rss": "126369792", "process_out_blocks": "0", "process_user_time": 1.013275}
+[0m23:07:27.360477 [debug] [MainThread]: Command `dbt run` failed at 23:07:27.360427 after 0.60 seconds
+[0m23:07:27.360697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e99310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1090e6ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108ebb050>]}
+[0m23:07:27.360913 [debug] [MainThread]: Flushing usage events
+[0m23:07:54.118106 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1069c6780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120229fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120229ca0>]}
+
+
+============================== 23:07:54.121912 | dc8bac95-4e31-425f-a0c3-5867a7ce27ba ==============================
+[0m23:07:54.121912 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:07:54.122321 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'version_check': 'True', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run --select query_prices', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m23:07:54.259087 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106ef8680>]}
+[0m23:07:54.283002 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1201ed220>]}
+[0m23:07:54.283633 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:07:54.345706 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:07:54.417512 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:07:54.417923 [debug] [MainThread]: Partial parsing: updated file: allium_project://models/query_prices.sql
+[0m23:07:54.515781 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078ba840>]}
+[0m23:07:54.557597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12218e690>]}
+[0m23:07:54.557901 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:07:54.558393 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12216c8f0>]}
+[0m23:07:54.559460 [info ] [MainThread]: 
+[0m23:07:54.559808 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:07:54.560285 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:07:54.589226 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:07:54.589492 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:07:54.589798 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:07:54.605714 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.016 seconds
+[0m23:07:54.606753 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:07:54.609352 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:07:54.614140 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:07:54.614373 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:07:54.614511 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:07:54.618522 [debug] [ThreadPool]: SQL status: BEGIN in 0.004 seconds
+[0m23:07:54.618771 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:07:54.618945 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:07:54.622431 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.003 seconds
+[0m23:07:54.623156 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:07:54.623394 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:07:54.626065 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:54.626273 [debug] [MainThread]: On master: BEGIN
+[0m23:07:54.626409 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:07:54.630141 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:07:54.630451 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:54.630660 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:07:54.640371 [debug] [MainThread]: SQL status: SELECT 0 in 0.009 seconds
+[0m23:07:54.641061 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1063b9ca0>]}
+[0m23:07:54.641306 [debug] [MainThread]: On master: ROLLBACK
+[0m23:07:54.641575 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:54.641718 [debug] [MainThread]: On master: BEGIN
+[0m23:07:54.642055 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:07:54.642180 [debug] [MainThread]: On master: COMMIT
+[0m23:07:54.642289 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:54.642395 [debug] [MainThread]: On master: COMMIT
+[0m23:07:54.642583 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:07:54.642726 [debug] [MainThread]: On master: Close
+[0m23:07:54.642930 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:07:54.643074 [info ] [MainThread]: 
+[0m23:07:54.644320 [debug] [Thread-1 (]: Began running node model.allium_project.query_prices
+[0m23:07:54.644592 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.query_prices ......................... [RUN]
+[0m23:07:54.644801 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.query_prices)
+[0m23:07:54.644957 [debug] [Thread-1 (]: Began compiling node model.allium_project.query_prices
+[0m23:07:54.649106 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.query_prices"
+[0m23:07:54.649657 [debug] [Thread-1 (]: Began executing node model.allium_project.query_prices
+[0m23:07:54.666663 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.query_prices"
+[0m23:07:54.667147 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:07:54.667324 [debug] [Thread-1 (]: On model.allium_project.query_prices: BEGIN
+[0m23:07:54.667468 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:07:54.671207 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:07:54.671491 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:07:54.671732 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+
+  create view "coingecko"."prices_schema"."query_prices__dbt_tmp"
+    
+    
+  as (
+    WITH input_param AS (
+    SELECT
+        'sui'::TEXT AS blockchain,
+        '0x549e8b69270defbfafd4f94e17ec44cdbdd99820b33bda2278dea3b9a32d3f55::cert::CERT'::TEXT AS contract_address,
+        '2024-01-01 00:00:00'::TIMESTAMP AS start_date,
+        '2024-11-30 23:59:59'::TIMESTAMP AS end_date
+),
+transcoded_coin_id AS (
+    SELECT coin_id
+    FROM prices_schema.coin_mapping_table c
+    JOIN input_param i ON c.blockchain = i.blockchain AND c.contract_address = i.contract_address
+)
+SELECT
+    p.coin_id,
+    date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' * FLOOR(EXTRACT(MINUTE FROM p.time_of_price)::INT / 5) AS time_of_price,
+    p.price
+FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.coin_id = t.coin_id
+JOIN input_param i ON TRUE
+WHERE p.time_of_price BETWEEN i.start_date AND i.end_date
+ORDER BY time_of_price
+  );
+[0m23:07:54.672714 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column p.timestamp does not exist
+LINE 21:     date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' *...
+                                ^
+
+[0m23:07:54.672966 [debug] [Thread-1 (]: On model.allium_project.query_prices: ROLLBACK
+[0m23:07:54.673320 [debug] [Thread-1 (]: On model.allium_project.query_prices: Close
+[0m23:07:54.677578 [debug] [Thread-1 (]: Database Error in model query_prices (models/query_prices.sql)
+  column p.timestamp does not exist
+  LINE 21:     date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' *...
+                                  ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:07:54.678462 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dc8bac95-4e31-425f-a0c3-5867a7ce27ba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12278f4a0>]}
+[0m23:07:54.678963 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model prices_schema.query_prices ................ [[31mERROR[0m in 0.03s]
+[0m23:07:54.679336 [debug] [Thread-1 (]: Finished running node model.allium_project.query_prices
+[0m23:07:54.680312 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:54.680479 [debug] [MainThread]: On master: BEGIN
+[0m23:07:54.680611 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:07:54.684334 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:07:54.684582 [debug] [MainThread]: On master: COMMIT
+[0m23:07:54.684733 [debug] [MainThread]: Using postgres connection "master"
+[0m23:07:54.684910 [debug] [MainThread]: On master: COMMIT
+[0m23:07:54.685217 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:07:54.685348 [debug] [MainThread]: On master: Close
+[0m23:07:54.685536 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:07:54.685653 [debug] [MainThread]: Connection 'model.allium_project.query_prices' was properly closed.
+[0m23:07:54.685795 [info ] [MainThread]: 
+[0m23:07:54.685937 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.13 seconds (0.13s).
+[0m23:07:54.686253 [debug] [MainThread]: Command end result
+[0m23:07:54.698773 [info ] [MainThread]: 
+[0m23:07:54.699046 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:07:54.699199 [info ] [MainThread]: 
+[0m23:07:54.699379 [error] [MainThread]:   Database Error in model query_prices (models/query_prices.sql)
+  column p.timestamp does not exist
+  LINE 21:     date_trunc('hour', p.timestamp) + INTERVAL '5 minutes' *...
+                                  ^
+  compiled code at target/run/allium_project/models/query_prices.sql
+[0m23:07:54.699526 [info ] [MainThread]: 
+[0m23:07:54.699672 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m23:07:54.701457 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.61659235, "process_in_blocks": "0", "process_kernel_time": 0.179048, "process_mem_max_rss": "126582784", "process_out_blocks": "0", "process_user_time": 1.010601}
+[0m23:07:54.701890 [debug] [MainThread]: Command `dbt run` failed at 23:07:54.701809 after 0.62 seconds
+[0m23:07:54.702163 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ba03e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120cca8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12064bb30>]}
+[0m23:07:54.702387 [debug] [MainThread]: Flushing usage events
+[0m23:08:15.787131 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105a3eba0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106a120c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106a11d60>]}
+
+
+============================== 23:08:15.790863 | f7db5f20-c83c-4c13-8e50-43566db4026a ==============================
+[0m23:08:15.790863 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:08:15.791340 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt run --select query_prices', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:08:15.902619 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107621100>]}
+[0m23:08:15.928111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1064ab2f0>]}
+[0m23:08:15.928837 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:08:15.980414 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:08:16.028850 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:08:16.029192 [debug] [MainThread]: Partial parsing: updated file: allium_project://models/query_prices.sql
+[0m23:08:16.125770 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a87050>]}
+[0m23:08:16.165883 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105f59ee0>]}
+[0m23:08:16.166211 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:08:16.166445 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078275c0>]}
+[0m23:08:16.167298 [info ] [MainThread]: 
+[0m23:08:16.167687 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:08:16.168135 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:08:16.195614 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:08:16.195891 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:08:16.196166 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:08:16.216801 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.020 seconds
+[0m23:08:16.218059 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:08:16.220568 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:08:16.224416 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:08:16.224616 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:08:16.224747 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:08:16.228717 [debug] [ThreadPool]: SQL status: BEGIN in 0.004 seconds
+[0m23:08:16.229011 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:08:16.229195 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:08:16.233436 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.004 seconds
+[0m23:08:16.234213 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:08:16.234551 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:08:16.237084 [debug] [MainThread]: Using postgres connection "master"
+[0m23:08:16.237277 [debug] [MainThread]: On master: BEGIN
+[0m23:08:16.237404 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:08:16.240809 [debug] [MainThread]: SQL status: BEGIN in 0.003 seconds
+[0m23:08:16.240983 [debug] [MainThread]: Using postgres connection "master"
+[0m23:08:16.241185 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:08:16.252282 [debug] [MainThread]: SQL status: SELECT 0 in 0.011 seconds
+[0m23:08:16.253279 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107956750>]}
+[0m23:08:16.253632 [debug] [MainThread]: On master: ROLLBACK
+[0m23:08:16.254007 [debug] [MainThread]: Using postgres connection "master"
+[0m23:08:16.254208 [debug] [MainThread]: On master: BEGIN
+[0m23:08:16.254586 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:08:16.254776 [debug] [MainThread]: On master: COMMIT
+[0m23:08:16.254919 [debug] [MainThread]: Using postgres connection "master"
+[0m23:08:16.255095 [debug] [MainThread]: On master: COMMIT
+[0m23:08:16.255435 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:08:16.255608 [debug] [MainThread]: On master: Close
+[0m23:08:16.255847 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:08:16.256006 [info ] [MainThread]: 
+[0m23:08:16.257425 [debug] [Thread-1 (]: Began running node model.allium_project.query_prices
+[0m23:08:16.257718 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.query_prices ......................... [RUN]
+[0m23:08:16.257987 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.query_prices)
+[0m23:08:16.258191 [debug] [Thread-1 (]: Began compiling node model.allium_project.query_prices
+[0m23:08:16.262127 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.query_prices"
+[0m23:08:16.262558 [debug] [Thread-1 (]: Began executing node model.allium_project.query_prices
+[0m23:08:16.278791 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.query_prices"
+[0m23:08:16.279248 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:08:16.279419 [debug] [Thread-1 (]: On model.allium_project.query_prices: BEGIN
+[0m23:08:16.279567 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:08:16.283757 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:08:16.284077 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:08:16.284309 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+
+  create view "coingecko"."prices_schema"."query_prices__dbt_tmp"
+    
+    
+  as (
+    WITH input_param AS (
+    SELECT
+        'sui'::TEXT AS blockchain,
+        '0x549e8b69270defbfafd4f94e17ec44cdbdd99820b33bda2278dea3b9a32d3f55::cert::CERT'::TEXT AS contract_address,
+        '2024-01-01 00:00:00'::TIMESTAMP AS start_date,
+        '2024-11-30 23:59:59'::TIMESTAMP AS end_date
+),
+transcoded_coin_id AS (
+    SELECT coin_id
+    FROM prices_schema.coin_mapping_table c
+    JOIN input_param i ON c.blockchain = i.blockchain AND c.contract_address = i.contract_address
+)
+SELECT
+    p.coin_id,
+    date_trunc('hour', p.time_of_price) + INTERVAL '5 minutes' * FLOOR(EXTRACT(MINUTE FROM p.time_of_price)::INT / 5) AS time_of_price,
+    p.price
+FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.coin_id = t.coin_id
+JOIN input_param i ON TRUE
+WHERE p.time_of_price BETWEEN i.start_date AND i.end_date
+ORDER BY time_of_price
+  );
+[0m23:08:16.310954 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.026 seconds
+[0m23:08:16.314434 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:08:16.314665 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+alter table "coingecko"."prices_schema"."query_prices__dbt_tmp" rename to "query_prices"
+[0m23:08:16.315358 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m23:08:16.323750 [debug] [Thread-1 (]: On model.allium_project.query_prices: COMMIT
+[0m23:08:16.324006 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:08:16.324175 [debug] [Thread-1 (]: On model.allium_project.query_prices: COMMIT
+[0m23:08:16.325217 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m23:08:16.328313 [debug] [Thread-1 (]: Applying DROP to: "coingecko"."prices_schema"."query_prices__dbt_backup"
+[0m23:08:16.330924 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m23:08:16.331206 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+drop view if exists "coingecko"."prices_schema"."query_prices__dbt_backup" cascade
+[0m23:08:16.334032 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m23:08:16.335595 [debug] [Thread-1 (]: On model.allium_project.query_prices: Close
+[0m23:08:16.336490 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f7db5f20-c83c-4c13-8e50-43566db4026a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1052f8e60>]}
+[0m23:08:16.336890 [info ] [Thread-1 (]: 1 of 1 OK created sql view model prices_schema.query_prices .................... [[32mCREATE VIEW[0m in 0.08s]
+[0m23:08:16.337187 [debug] [Thread-1 (]: Finished running node model.allium_project.query_prices
+[0m23:08:16.337841 [debug] [MainThread]: Using postgres connection "master"
+[0m23:08:16.338032 [debug] [MainThread]: On master: BEGIN
+[0m23:08:16.338166 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:08:16.342412 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:08:16.342619 [debug] [MainThread]: On master: COMMIT
+[0m23:08:16.342768 [debug] [MainThread]: Using postgres connection "master"
+[0m23:08:16.342902 [debug] [MainThread]: On master: COMMIT
+[0m23:08:16.343106 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:08:16.343230 [debug] [MainThread]: On master: Close
+[0m23:08:16.343416 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:08:16.343538 [debug] [MainThread]: Connection 'model.allium_project.query_prices' was properly closed.
+[0m23:08:16.343679 [info ] [MainThread]: 
+[0m23:08:16.343835 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.18 seconds (0.18s).
+[0m23:08:16.344245 [debug] [MainThread]: Command end result
+[0m23:08:16.358232 [info ] [MainThread]: 
+[0m23:08:16.358515 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:08:16.358692 [info ] [MainThread]: 
+[0m23:08:16.358898 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m23:08:16.360292 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.6074394, "process_in_blocks": "0", "process_kernel_time": 0.174405, "process_mem_max_rss": "127795200", "process_out_blocks": "0", "process_user_time": 0.998659}
+[0m23:08:16.360562 [debug] [MainThread]: Command `dbt run` succeeded at 23:08:16.360514 after 0.61 seconds
+[0m23:08:16.360754 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106616fc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1079e7d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1079fc590>]}
+[0m23:08:16.360923 [debug] [MainThread]: Flushing usage events
+[0m23:10:32.677645 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112cd1b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112f2dfa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112f2dca0>]}
+
+
+============================== 23:10:32.681584 | ab52f221-15ab-48eb-b463-fd2e16f3001b ==============================
+[0m23:10:32.681584 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:10:32.681907 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'debug': 'False', 'version_check': 'True', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --select enrich_tables', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m23:10:32.807031 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112f2fbc0>]}
+[0m23:10:32.831271 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112f64440>]}
+[0m23:10:32.831946 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:10:32.884660 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:10:32.935338 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m23:10:32.935900 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m23:10:32.947580 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1139e0290>]}
+[0m23:10:32.989720 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113347fe0>]}
+[0m23:10:32.990076 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:10:32.990283 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1133703b0>]}
+[0m23:10:32.991238 [info ] [MainThread]: 
+[0m23:10:32.991588 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:10:32.992112 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:10:33.024093 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:10:33.024354 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:10:33.024510 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:10:33.042643 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.018 seconds
+[0m23:10:33.043597 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:10:33.045997 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:10:33.049451 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:10:33.049651 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:10:33.049787 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:10:33.054211 [debug] [ThreadPool]: SQL status: BEGIN in 0.004 seconds
+[0m23:10:33.054600 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:10:33.054843 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:10:33.059316 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.004 seconds
+[0m23:10:33.060113 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:10:33.060405 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:10:33.062799 [debug] [MainThread]: Using postgres connection "master"
+[0m23:10:33.062984 [debug] [MainThread]: On master: BEGIN
+[0m23:10:33.063109 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:10:33.068044 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m23:10:33.068233 [debug] [MainThread]: Using postgres connection "master"
+[0m23:10:33.068421 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:10:33.082456 [debug] [MainThread]: SQL status: SELECT 2 in 0.014 seconds
+[0m23:10:33.083413 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113bd4e30>]}
+[0m23:10:33.083677 [debug] [MainThread]: On master: ROLLBACK
+[0m23:10:33.083971 [debug] [MainThread]: Using postgres connection "master"
+[0m23:10:33.084140 [debug] [MainThread]: On master: BEGIN
+[0m23:10:33.084536 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:10:33.084672 [debug] [MainThread]: On master: COMMIT
+[0m23:10:33.084788 [debug] [MainThread]: Using postgres connection "master"
+[0m23:10:33.084901 [debug] [MainThread]: On master: COMMIT
+[0m23:10:33.085095 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:10:33.085214 [debug] [MainThread]: On master: Close
+[0m23:10:33.085415 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:10:33.085556 [info ] [MainThread]: 
+[0m23:10:33.086975 [debug] [Thread-1 (]: Began running node model.allium_project.enrich_tables
+[0m23:10:33.087325 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.enrich_tables ........................ [RUN]
+[0m23:10:33.087576 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.enrich_tables)
+[0m23:10:33.087748 [debug] [Thread-1 (]: Began compiling node model.allium_project.enrich_tables
+[0m23:10:33.090942 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.enrich_tables"
+[0m23:10:33.091361 [debug] [Thread-1 (]: Began executing node model.allium_project.enrich_tables
+[0m23:10:33.109503 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.enrich_tables"
+[0m23:10:33.110019 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:10:33.110197 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: BEGIN
+[0m23:10:33.110354 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:10:33.114096 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:10:33.114370 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:10:33.114607 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+
+  create view "coingecko"."prices_schema"."enrich_tables__dbt_tmp"
+    
+    
+  as (
+    -- Strategy:
+-- Transcode erc20_token_transfer_table's token_address + chain as ethereum into a coingecko token_id
+-- Then, JOIN against the prices_schema.query_prices view from Part 1 to get prices
+-- Get the price corresponding to the block time stamp from prices_schema.query_prices
+-- query_prices has a resolution of 5 minutes. normalize the block_timestamp to 5 mins too
+-- For simplicity, we made raw amount and amount the same for now.
+-- raw amount seems to be the amount but in smallest denominations eg wei
+SELECT
+    t.transaction_hash,
+    t.event_index,
+    t.from_address,
+    t.to_address,
+    t.token_address,
+    t.token_name,
+    t.token_symbol,
+    p.amount AS amount,
+    p.amount AS raw_amount,
+    t.block_timestamp,
+    t.block_number,
+    t.block_hash
+FROM prices_schema.erc20_token_transfer_table t
+JOIN prices_schema.coin_mapping_table cm
+    ON cm.chain = 'ethereum' AND t.token_address = cm.token_address
+LEFT JOIN LATERAL (
+    SELECT p.price as amount
+    FROM prices_schema.query_prices p
+    WHERE p.token_id = cm.token_id
+      AND p.timestamp = to_timestamp(floor(EXTRACT('epoch' FROM t.block_timestamp) / 300) * 300)
+    ORDER BY p.timestamp DESC
+    LIMIT 1
+) p ON TRUE
+  );
+[0m23:10:33.115393 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column cm.chain does not exist
+LINE 29:     ON cm.chain = 'ethereum' AND t.token_address = cm.token_...
+                ^
+
+[0m23:10:33.115549 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: ROLLBACK
+[0m23:10:33.115892 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: Close
+[0m23:10:33.120531 [debug] [Thread-1 (]: Database Error in model enrich_tables (models/enrich_tables.sql)
+  column cm.chain does not exist
+  LINE 29:     ON cm.chain = 'ethereum' AND t.token_address = cm.token_...
+                  ^
+  compiled code at target/run/allium_project/models/enrich_tables.sql
+[0m23:10:33.121365 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ab52f221-15ab-48eb-b463-fd2e16f3001b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112024e30>]}
+[0m23:10:33.121693 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model prices_schema.enrich_tables ............... [[31mERROR[0m in 0.03s]
+[0m23:10:33.121969 [debug] [Thread-1 (]: Finished running node model.allium_project.enrich_tables
+[0m23:10:33.122890 [debug] [MainThread]: Using postgres connection "master"
+[0m23:10:33.123060 [debug] [MainThread]: On master: BEGIN
+[0m23:10:33.123186 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:10:33.126711 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:10:33.126866 [debug] [MainThread]: On master: COMMIT
+[0m23:10:33.126988 [debug] [MainThread]: Using postgres connection "master"
+[0m23:10:33.127103 [debug] [MainThread]: On master: COMMIT
+[0m23:10:33.127297 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:10:33.127416 [debug] [MainThread]: On master: Close
+[0m23:10:33.127593 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:10:33.127705 [debug] [MainThread]: Connection 'model.allium_project.enrich_tables' was properly closed.
+[0m23:10:33.127840 [info ] [MainThread]: 
+[0m23:10:33.127986 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.14 seconds (0.14s).
+[0m23:10:33.128530 [debug] [MainThread]: Command end result
+[0m23:10:33.140556 [info ] [MainThread]: 
+[0m23:10:33.140807 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:10:33.140950 [info ] [MainThread]: 
+[0m23:10:33.141136 [error] [MainThread]:   Database Error in model enrich_tables (models/enrich_tables.sql)
+  column cm.chain does not exist
+  LINE 29:     ON cm.chain = 'ethereum' AND t.token_address = cm.token_...
+                  ^
+  compiled code at target/run/allium_project/models/enrich_tables.sql
+[0m23:10:33.141269 [info ] [MainThread]: 
+[0m23:10:33.141405 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m23:10:33.142790 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.50193655, "process_in_blocks": "0", "process_kernel_time": 0.182637, "process_mem_max_rss": "120717312", "process_out_blocks": "0", "process_user_time": 0.927575}
+[0m23:10:33.143275 [debug] [MainThread]: Command `dbt run` failed at 23:10:33.143211 after 0.50 seconds
+[0m23:10:33.143502 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111c92b70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112c92a80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1133b9af0>]}
+[0m23:10:33.143685 [debug] [MainThread]: Flushing usage events
+[0m23:12:28.592910 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b199430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b769e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b769b20>]}
+
+
+============================== 23:12:28.596917 | 866b559e-18db-49c5-a8dc-0743983f3e7d ==============================
+[0m23:12:28.596917 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:12:28.597260 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt run --select enrich_tables', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:12:28.717130 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118f6b590>]}
+[0m23:12:28.741226 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b10a480>]}
+[0m23:12:28.741837 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:12:28.802396 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:12:28.852183 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:12:28.852557 [debug] [MainThread]: Partial parsing: updated file: allium_project://models/enrich_tables.sql
+[0m23:12:28.945863 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c9fc650>]}
+[0m23:12:28.989191 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c9d4b90>]}
+[0m23:12:28.989483 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:12:28.989664 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c3ba030>]}
+[0m23:12:28.990334 [info ] [MainThread]: 
+[0m23:12:28.990606 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:12:28.991006 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:12:29.020945 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:12:29.021199 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:12:29.021459 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:12:29.037381 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.016 seconds
+[0m23:12:29.038168 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:12:29.040342 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:12:29.043789 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:12:29.043994 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:12:29.044132 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:12:29.048483 [debug] [ThreadPool]: SQL status: BEGIN in 0.004 seconds
+[0m23:12:29.048770 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:12:29.048967 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:12:29.053355 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.004 seconds
+[0m23:12:29.054176 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:12:29.054486 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:12:29.058088 [debug] [MainThread]: Using postgres connection "master"
+[0m23:12:29.058305 [debug] [MainThread]: On master: BEGIN
+[0m23:12:29.058439 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:12:29.062501 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:12:29.062672 [debug] [MainThread]: Using postgres connection "master"
+[0m23:12:29.062855 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:12:29.073782 [debug] [MainThread]: SQL status: SELECT 2 in 0.011 seconds
+[0m23:12:29.074935 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c7ca990>]}
+[0m23:12:29.075208 [debug] [MainThread]: On master: ROLLBACK
+[0m23:12:29.075568 [debug] [MainThread]: Using postgres connection "master"
+[0m23:12:29.075799 [debug] [MainThread]: On master: BEGIN
+[0m23:12:29.076200 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:12:29.076428 [debug] [MainThread]: On master: COMMIT
+[0m23:12:29.076579 [debug] [MainThread]: Using postgres connection "master"
+[0m23:12:29.076715 [debug] [MainThread]: On master: COMMIT
+[0m23:12:29.076931 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:12:29.077055 [debug] [MainThread]: On master: Close
+[0m23:12:29.077294 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:12:29.077446 [info ] [MainThread]: 
+[0m23:12:29.079038 [debug] [Thread-1 (]: Began running node model.allium_project.enrich_tables
+[0m23:12:29.079362 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.enrich_tables ........................ [RUN]
+[0m23:12:29.079620 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.enrich_tables)
+[0m23:12:29.079789 [debug] [Thread-1 (]: Began compiling node model.allium_project.enrich_tables
+[0m23:12:29.083184 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.enrich_tables"
+[0m23:12:29.083645 [debug] [Thread-1 (]: Began executing node model.allium_project.enrich_tables
+[0m23:12:29.101752 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.enrich_tables"
+[0m23:12:29.102291 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:12:29.102470 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: BEGIN
+[0m23:12:29.102618 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:12:29.107015 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:12:29.107391 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:12:29.107671 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+
+  create view "coingecko"."prices_schema"."enrich_tables__dbt_tmp"
+    
+    
+  as (
+    -- Strategy:
+-- Transcode erc20_token_transfer_table's token_address + chain as ethereum into a coingecko token_id
+-- Then, JOIN against the prices_schema.query_prices view from Part 1 to get prices
+-- Get the price corresponding to the block time stamp from prices_schema.query_prices
+-- query_prices has a resolution of 5 minutes. normalize the block_timestamp to 5 mins too
+-- For simplicity, we made raw amount and amount the same for now.
+-- raw amount seems to be the amount but in smallest denominations eg wei
+SELECT
+    t.transaction_hash,
+    t.event_index,
+    t.from_address,
+    t.to_address,
+    t.token_address,
+    t.token_name,
+    t.token_symbol,
+    p.amount AS amount,
+    p.amount AS raw_amount,
+    t.block_timestamp,
+    t.block_number,
+    t.block_hash
+FROM prices_schema.erc20_token_transfer_table t
+JOIN prices_schema.coin_mapping_table cm
+    ON cm.chain = 'ethereum' AND t.token_address = cm.token_address
+LEFT JOIN LATERAL (
+    SELECT p.price as amount
+    FROM prices_schema.query_prices p
+    WHERE p.coin_id = cm.token_id
+      AND p.time_of_price = to_timestamp(floor(EXTRACT('epoch' FROM t.block_timestamp) / 300) * 300)
+    ORDER BY p.time_of_price DESC
+    LIMIT 1
+) p ON TRUE
+  );
+[0m23:12:29.108565 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column cm.chain does not exist
+LINE 29:     ON cm.chain = 'ethereum' AND t.token_address = cm.token_...
+                ^
+
+[0m23:12:29.108776 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: ROLLBACK
+[0m23:12:29.109159 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: Close
+[0m23:12:29.113753 [debug] [Thread-1 (]: Database Error in model enrich_tables (models/enrich_tables.sql)
+  column cm.chain does not exist
+  LINE 29:     ON cm.chain = 'ethereum' AND t.token_address = cm.token_...
+                  ^
+  compiled code at target/run/allium_project/models/enrich_tables.sql
+[0m23:12:29.114553 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '866b559e-18db-49c5-a8dc-0743983f3e7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ac24d70>]}
+[0m23:12:29.114902 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model prices_schema.enrich_tables ............... [[31mERROR[0m in 0.03s]
+[0m23:12:29.115200 [debug] [Thread-1 (]: Finished running node model.allium_project.enrich_tables
+[0m23:12:29.116098 [debug] [MainThread]: Using postgres connection "master"
+[0m23:12:29.116253 [debug] [MainThread]: On master: BEGIN
+[0m23:12:29.116377 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:12:29.119851 [debug] [MainThread]: SQL status: BEGIN in 0.003 seconds
+[0m23:12:29.120059 [debug] [MainThread]: On master: COMMIT
+[0m23:12:29.120200 [debug] [MainThread]: Using postgres connection "master"
+[0m23:12:29.120318 [debug] [MainThread]: On master: COMMIT
+[0m23:12:29.120572 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:12:29.120688 [debug] [MainThread]: On master: Close
+[0m23:12:29.120854 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:12:29.120964 [debug] [MainThread]: Connection 'model.allium_project.enrich_tables' was properly closed.
+[0m23:12:29.121091 [info ] [MainThread]: 
+[0m23:12:29.121227 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.13 seconds (0.13s).
+[0m23:12:29.121519 [debug] [MainThread]: Command end result
+[0m23:12:29.139265 [info ] [MainThread]: 
+[0m23:12:29.139706 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:12:29.139900 [info ] [MainThread]: 
+[0m23:12:29.140099 [error] [MainThread]:   Database Error in model enrich_tables (models/enrich_tables.sql)
+  column cm.chain does not exist
+  LINE 29:     ON cm.chain = 'ethereum' AND t.token_address = cm.token_...
+                  ^
+  compiled code at target/run/allium_project/models/enrich_tables.sql
+[0m23:12:29.140237 [info ] [MainThread]: 
+[0m23:12:29.141305 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m23:12:29.143019 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.5811967, "process_in_blocks": "0", "process_kernel_time": 0.181705, "process_mem_max_rss": "126500864", "process_out_blocks": "0", "process_user_time": 0.998975}
+[0m23:12:29.143318 [debug] [MainThread]: Command `dbt run` failed at 23:12:29.143267 after 0.58 seconds
+[0m23:12:29.143525 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b2ecc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c7ac350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118b6b4d0>]}
+[0m23:12:29.143699 [debug] [MainThread]: Flushing usage events
+[0m23:13:30.778553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103c80650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1046cdfd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1046cdc70>]}
+
+
+============================== 23:13:30.782726 | f6f2bc56-4a73-44db-a21d-073a6725a0c1 ==============================
+[0m23:13:30.782726 [info ] [MainThread]: Running with dbt=1.8.9
+[0m23:13:30.783056 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run --select enrich_tables', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m23:13:30.903366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104be0bf0>]}
+[0m23:13:30.927323 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104be1160>]}
+[0m23:13:30.927954 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m23:13:30.981977 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m23:13:31.032510 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:13:31.032904 [debug] [MainThread]: Partial parsing: updated file: allium_project://models/enrich_tables.sql
+[0m23:13:31.139134 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10468d100>]}
+[0m23:13:31.176802 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10552cd70>]}
+[0m23:13:31.177123 [info ] [MainThread]: Found 2 models, 428 macros
+[0m23:13:31.177328 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105413f50>]}
+[0m23:13:31.178130 [info ] [MainThread]: 
+[0m23:13:31.178574 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:13:31.179032 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m23:13:31.209586 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m23:13:31.209877 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:13:31.210056 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:13:31.226160 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.016 seconds
+[0m23:13:31.227139 [debug] [ThreadPool]: On list_coingecko: Close
+[0m23:13:31.229908 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m23:13:31.232898 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:13:31.233107 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m23:13:31.233379 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:13:31.256502 [debug] [ThreadPool]: SQL status: BEGIN in 0.023 seconds
+[0m23:13:31.258166 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m23:13:31.261821 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m23:13:31.279122 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.014 seconds
+[0m23:13:31.280044 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m23:13:31.280581 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m23:13:31.287580 [debug] [MainThread]: Using postgres connection "master"
+[0m23:13:31.287849 [debug] [MainThread]: On master: BEGIN
+[0m23:13:31.288036 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:13:31.294254 [debug] [MainThread]: SQL status: BEGIN in 0.006 seconds
+[0m23:13:31.297258 [debug] [MainThread]: Using postgres connection "master"
+[0m23:13:31.301550 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:13:31.324946 [debug] [MainThread]: SQL status: SELECT 2 in 0.016 seconds
+[0m23:13:31.330050 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106f62690>]}
+[0m23:13:31.330288 [debug] [MainThread]: On master: ROLLBACK
+[0m23:13:31.330655 [debug] [MainThread]: Using postgres connection "master"
+[0m23:13:31.330832 [debug] [MainThread]: On master: BEGIN
+[0m23:13:31.331238 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m23:13:31.331433 [debug] [MainThread]: On master: COMMIT
+[0m23:13:31.331570 [debug] [MainThread]: Using postgres connection "master"
+[0m23:13:31.331697 [debug] [MainThread]: On master: COMMIT
+[0m23:13:31.331949 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:13:31.332201 [debug] [MainThread]: On master: Close
+[0m23:13:31.332877 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:13:31.333261 [info ] [MainThread]: 
+[0m23:13:31.336017 [debug] [Thread-1 (]: Began running node model.allium_project.enrich_tables
+[0m23:13:31.336782 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.enrich_tables ........................ [RUN]
+[0m23:13:31.337521 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.enrich_tables)
+[0m23:13:31.338100 [debug] [Thread-1 (]: Began compiling node model.allium_project.enrich_tables
+[0m23:13:31.343996 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.enrich_tables"
+[0m23:13:31.344737 [debug] [Thread-1 (]: Began executing node model.allium_project.enrich_tables
+[0m23:13:31.360916 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.enrich_tables"
+[0m23:13:31.361487 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:13:31.361684 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: BEGIN
+[0m23:13:31.361832 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:13:31.365848 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m23:13:31.366128 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:13:31.366357 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+
+  create view "coingecko"."prices_schema"."enrich_tables__dbt_tmp"
+    
+    
+  as (
+    -- Strategy:
+-- Transcode erc20_token_transfer_table's token_address + chain as ethereum into a coingecko token_id
+-- Then, JOIN against the prices_schema.query_prices view from Part 1 to get prices
+-- Get the price corresponding to the block time stamp from prices_schema.query_prices
+-- query_prices has a resolution of 5 minutes. normalize the block_timestamp to 5 mins too
+-- For simplicity, we made raw amount and amount the same for now.
+-- raw amount seems to be the amount but in smallest denominations eg wei
+SELECT
+    t.transaction_hash,
+    t.event_index,
+    t.from_address,
+    t.to_address,
+    t.token_address,
+    t.token_name,
+    t.token_symbol,
+    p.amount AS amount,
+    p.amount AS raw_amount,
+    t.block_timestamp,
+    t.block_number,
+    t.block_hash
+FROM prices_schema.erc20_token_transfer_table t
+JOIN prices_schema.coin_mapping_table cm
+    ON cm.blockchain = 'ethereum' AND t.token_address = cm.contract_address
+LEFT JOIN LATERAL (
+    SELECT p.price as amount
+    FROM prices_schema.query_prices p
+    WHERE p.coin_id = cm.coin_id
+      AND p.time_of_price = to_timestamp(floor(EXTRACT('epoch' FROM t.block_timestamp) / 300) * 300)
+    ORDER BY p.time_of_price DESC
+    LIMIT 1
+) p ON TRUE
+  );
+[0m23:13:31.376004 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.009 seconds
+[0m23:13:31.379350 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:13:31.379765 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+alter table "coingecko"."prices_schema"."enrich_tables__dbt_tmp" rename to "enrich_tables"
+[0m23:13:31.381628 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m23:13:31.388471 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: COMMIT
+[0m23:13:31.388665 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:13:31.388826 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: COMMIT
+[0m23:13:31.389473 [debug] [Thread-1 (]: SQL status: COMMIT in 0.000 seconds
+[0m23:13:31.392152 [debug] [Thread-1 (]: Applying DROP to: "coingecko"."prices_schema"."enrich_tables__dbt_backup"
+[0m23:13:31.394381 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m23:13:31.394585 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+drop view if exists "coingecko"."prices_schema"."enrich_tables__dbt_backup" cascade
+[0m23:13:31.395138 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m23:13:31.396522 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: Close
+[0m23:13:31.397355 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6f2bc56-4a73-44db-a21d-073a6725a0c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102fb4f80>]}
+[0m23:13:31.397780 [info ] [Thread-1 (]: 1 of 1 OK created sql view model prices_schema.enrich_tables ................... [[32mCREATE VIEW[0m in 0.06s]
+[0m23:13:31.398328 [debug] [Thread-1 (]: Finished running node model.allium_project.enrich_tables
+[0m23:13:31.399644 [debug] [MainThread]: Using postgres connection "master"
+[0m23:13:31.399905 [debug] [MainThread]: On master: BEGIN
+[0m23:13:31.400069 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:13:31.404160 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m23:13:31.404343 [debug] [MainThread]: On master: COMMIT
+[0m23:13:31.404467 [debug] [MainThread]: Using postgres connection "master"
+[0m23:13:31.404580 [debug] [MainThread]: On master: COMMIT
+[0m23:13:31.404772 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m23:13:31.404888 [debug] [MainThread]: On master: Close
+[0m23:13:31.405139 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:13:31.405371 [debug] [MainThread]: Connection 'model.allium_project.enrich_tables' was properly closed.
+[0m23:13:31.405546 [info ] [MainThread]: 
+[0m23:13:31.405707 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.23 seconds (0.23s).
+[0m23:13:31.406296 [debug] [MainThread]: Command end result
+[0m23:13:31.422739 [info ] [MainThread]: 
+[0m23:13:31.423033 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:13:31.423207 [info ] [MainThread]: 
+[0m23:13:31.423370 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m23:13:31.426957 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.68091273, "process_in_blocks": "0", "process_kernel_time": 0.178476, "process_mem_max_rss": "126009344", "process_out_blocks": "0", "process_user_time": 1.019919}
+[0m23:13:31.427215 [debug] [MainThread]: Command `dbt run` succeeded at 23:13:31.427173 after 0.68 seconds
+[0m23:13:31.427409 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10401eff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054b95e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1040faa80>]}
+[0m23:13:31.427589 [debug] [MainThread]: Flushing usage events
+[0m00:00:03.546724 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106069eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106535f40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106535c10>]}
+
+
+============================== 00:00:03.551663 | 3e5842c2-578b-4f98-a2fa-95ed568bc745 ==============================
+[0m00:00:03.551663 [info ] [MainThread]: Running with dbt=1.8.9
+[0m00:00:03.552009 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --select query_prices', 'send_anonymous_usage_stats': 'True'}
+[0m00:00:03.672384 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106ac35c0>]}
+[0m00:00:03.698256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106425580>]}
+[0m00:00:03.698984 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m00:00:03.754747 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m00:00:03.806256 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:00:03.806528 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:00:03.817679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106b446e0>]}
+[0m00:00:03.858669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107275310>]}
+[0m00:00:03.859574 [info ] [MainThread]: Found 2 models, 428 macros
+[0m00:00:03.859864 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106b51a60>]}
+[0m00:00:03.860817 [info ] [MainThread]: 
+[0m00:00:03.861133 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:00:03.861651 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m00:00:03.891906 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m00:00:03.892173 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:00:03.892488 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:00:03.913013 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.021 seconds
+[0m00:00:03.913856 [debug] [ThreadPool]: On list_coingecko: Close
+[0m00:00:03.916324 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m00:00:03.919728 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m00:00:03.919918 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m00:00:03.920049 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:00:03.926327 [debug] [ThreadPool]: SQL status: BEGIN in 0.006 seconds
+[0m00:00:03.926599 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m00:00:03.926786 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m00:00:03.934234 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.007 seconds
+[0m00:00:03.935103 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m00:00:03.935414 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m00:00:03.938044 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:03.938221 [debug] [MainThread]: On master: BEGIN
+[0m00:00:03.938343 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:00:03.941667 [debug] [MainThread]: SQL status: BEGIN in 0.003 seconds
+[0m00:00:03.941857 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:03.942066 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:00:03.970168 [debug] [MainThread]: SQL status: SELECT 5 in 0.028 seconds
+[0m00:00:03.971659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107275a90>]}
+[0m00:00:03.971934 [debug] [MainThread]: On master: ROLLBACK
+[0m00:00:03.972319 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:03.972566 [debug] [MainThread]: On master: BEGIN
+[0m00:00:03.972941 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m00:00:03.973096 [debug] [MainThread]: On master: COMMIT
+[0m00:00:03.973219 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:03.973332 [debug] [MainThread]: On master: COMMIT
+[0m00:00:03.973534 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m00:00:03.973656 [debug] [MainThread]: On master: Close
+[0m00:00:03.973891 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m00:00:03.974033 [info ] [MainThread]: 
+[0m00:00:03.975265 [debug] [Thread-1 (]: Began running node model.allium_project.query_prices
+[0m00:00:03.975537 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.query_prices ......................... [RUN]
+[0m00:00:03.975776 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.query_prices)
+[0m00:00:03.976095 [debug] [Thread-1 (]: Began compiling node model.allium_project.query_prices
+[0m00:00:03.980103 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.query_prices"
+[0m00:00:03.981149 [debug] [Thread-1 (]: Began executing node model.allium_project.query_prices
+[0m00:00:04.000254 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.query_prices"
+[0m00:00:04.001242 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m00:00:04.001526 [debug] [Thread-1 (]: On model.allium_project.query_prices: BEGIN
+[0m00:00:04.001797 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:00:04.005465 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m00:00:04.005666 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m00:00:04.005846 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+
+  create view "coingecko"."prices_schema"."query_prices__dbt_tmp"
+    
+    
+  as (
+    WITH input_param AS (
+    SELECT
+        'sui'::TEXT AS blockchain,
+        '0x549e8b69270defbfafd4f94e17ec44cdbdd99820b33bda2278dea3b9a32d3f55::cert::CERT'::TEXT AS contract_address,
+        '2024-01-01 00:00:00'::TIMESTAMP AS start_date,
+        '2024-11-30 23:59:59'::TIMESTAMP AS end_date
+),
+transcoded_coin_id AS (
+    SELECT coin_id
+    FROM prices_schema.coin_mapping_table c
+    JOIN input_param i ON c.blockchain = i.blockchain AND c.contract_address = i.contract_address
+)
+SELECT
+    p.coin_id,
+    date_trunc('hour', p.time_of_price) + INTERVAL '5 minutes' * FLOOR(EXTRACT(MINUTE FROM p.time_of_price)::INT / 5) AS time_of_price,
+    p.price
+FROM prices_schema.prices p JOIN transcoded_coin_id t ON p.coin_id = t.coin_id
+JOIN input_param i ON TRUE
+WHERE p.time_of_price BETWEEN i.start_date AND i.end_date
+ORDER BY time_of_price
+  );
+[0m00:00:04.016874 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.011 seconds
+[0m00:00:04.020926 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m00:00:04.021208 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+alter table "coingecko"."prices_schema"."query_prices" rename to "query_prices__dbt_backup"
+[0m00:00:04.022010 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m00:00:04.023824 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m00:00:04.024013 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+alter table "coingecko"."prices_schema"."query_prices__dbt_tmp" rename to "query_prices"
+[0m00:00:04.025054 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m00:00:04.033061 [debug] [Thread-1 (]: On model.allium_project.query_prices: COMMIT
+[0m00:00:04.033352 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m00:00:04.033545 [debug] [Thread-1 (]: On model.allium_project.query_prices: COMMIT
+[0m00:00:04.034423 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m00:00:04.037688 [debug] [Thread-1 (]: Applying DROP to: "coingecko"."prices_schema"."query_prices__dbt_backup"
+[0m00:00:04.040042 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.query_prices"
+[0m00:00:04.040276 [debug] [Thread-1 (]: On model.allium_project.query_prices: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.query_prices"} */
+drop view if exists "coingecko"."prices_schema"."query_prices__dbt_backup" cascade
+[0m00:00:04.063831 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.023 seconds
+[0m00:00:04.065473 [debug] [Thread-1 (]: On model.allium_project.query_prices: Close
+[0m00:00:04.066273 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3e5842c2-578b-4f98-a2fa-95ed568bc745', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104e1cc50>]}
+[0m00:00:04.066702 [info ] [Thread-1 (]: 1 of 1 OK created sql view model prices_schema.query_prices .................... [[32mCREATE VIEW[0m in 0.09s]
+[0m00:00:04.067023 [debug] [Thread-1 (]: Finished running node model.allium_project.query_prices
+[0m00:00:04.067804 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:04.068067 [debug] [MainThread]: On master: BEGIN
+[0m00:00:04.068238 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:00:04.072396 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m00:00:04.072601 [debug] [MainThread]: On master: COMMIT
+[0m00:00:04.072735 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:04.072858 [debug] [MainThread]: On master: COMMIT
+[0m00:00:04.073053 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m00:00:04.073171 [debug] [MainThread]: On master: Close
+[0m00:00:04.073353 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:00:04.073466 [debug] [MainThread]: Connection 'model.allium_project.query_prices' was properly closed.
+[0m00:00:04.073600 [info ] [MainThread]: 
+[0m00:00:04.073742 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.21 seconds (0.21s).
+[0m00:00:04.074048 [debug] [MainThread]: Command end result
+[0m00:00:04.087881 [info ] [MainThread]: 
+[0m00:00:04.088272 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:00:04.088488 [info ] [MainThread]: 
+[0m00:00:04.088671 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m00:00:04.090474 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.5784866, "process_in_blocks": "0", "process_kernel_time": 0.175488, "process_mem_max_rss": "120160256", "process_out_blocks": "0", "process_user_time": 0.970421}
+[0m00:00:04.090885 [debug] [MainThread]: Command `dbt run` succeeded at 00:00:04.090809 after 0.58 seconds
+[0m00:00:04.091112 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10629c3e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10769ba40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072750a0>]}
+[0m00:00:04.091315 [debug] [MainThread]: Flushing usage events
+[0m00:00:08.808027 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10505d910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c2dd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c2da00>]}
+
+
+============================== 00:00:08.811172 | d1dd5223-d7d6-412a-a05e-c667ab5b16fd ==============================
+[0m00:00:08.811172 [info ] [MainThread]: Running with dbt=1.8.9
+[0m00:00:08.811502 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/Users/eugeneleejunping/Documents/alliumAssignment', 'log_path': '/Users/eugeneleejunping/Documents/alliumAssignment/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --select enrich_tables', 'send_anonymous_usage_stats': 'True'}
+[0m00:00:08.909009 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1070702f0>]}
+[0m00:00:08.933314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104652de0>]}
+[0m00:00:08.933936 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m00:00:08.981774 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m00:00:09.025710 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:00:09.026057 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:00:09.037936 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106cf4080>]}
+[0m00:00:09.076886 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1077446e0>]}
+[0m00:00:09.077193 [info ] [MainThread]: Found 2 models, 428 macros
+[0m00:00:09.077368 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c665d0>]}
+[0m00:00:09.078191 [info ] [MainThread]: 
+[0m00:00:09.078467 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:00:09.078936 [debug] [ThreadPool]: Acquiring new postgres connection 'list_coingecko'
+[0m00:00:09.108559 [debug] [ThreadPool]: Using postgres connection "list_coingecko"
+[0m00:00:09.108926 [debug] [ThreadPool]: On list_coingecko: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:00:09.109145 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:00:09.121328 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.012 seconds
+[0m00:00:09.122159 [debug] [ThreadPool]: On list_coingecko: Close
+[0m00:00:09.124237 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_coingecko, now list_coingecko_prices_schema)
+[0m00:00:09.128675 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m00:00:09.128906 [debug] [ThreadPool]: On list_coingecko_prices_schema: BEGIN
+[0m00:00:09.129048 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:00:09.133661 [debug] [ThreadPool]: SQL status: BEGIN in 0.005 seconds
+[0m00:00:09.133966 [debug] [ThreadPool]: Using postgres connection "list_coingecko_prices_schema"
+[0m00:00:09.134283 [debug] [ThreadPool]: On list_coingecko_prices_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "list_coingecko_prices_schema"} */
+select
+      'coingecko' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'prices_schema'
+    union all
+    select
+      'coingecko' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'prices_schema'
+  
+[0m00:00:09.137705 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.003 seconds
+[0m00:00:09.138635 [debug] [ThreadPool]: On list_coingecko_prices_schema: ROLLBACK
+[0m00:00:09.139013 [debug] [ThreadPool]: On list_coingecko_prices_schema: Close
+[0m00:00:09.141614 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:09.141833 [debug] [MainThread]: On master: BEGIN
+[0m00:00:09.142007 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:00:09.145846 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m00:00:09.146082 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:09.146319 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:00:09.160005 [debug] [MainThread]: SQL status: SELECT 2 in 0.013 seconds
+[0m00:00:09.160941 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a97bc0>]}
+[0m00:00:09.161178 [debug] [MainThread]: On master: ROLLBACK
+[0m00:00:09.161525 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:09.161699 [debug] [MainThread]: On master: BEGIN
+[0m00:00:09.162157 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m00:00:09.162370 [debug] [MainThread]: On master: COMMIT
+[0m00:00:09.162585 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:09.162769 [debug] [MainThread]: On master: COMMIT
+[0m00:00:09.163020 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m00:00:09.163173 [debug] [MainThread]: On master: Close
+[0m00:00:09.163412 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m00:00:09.163615 [info ] [MainThread]: 
+[0m00:00:09.164967 [debug] [Thread-1 (]: Began running node model.allium_project.enrich_tables
+[0m00:00:09.165338 [info ] [Thread-1 (]: 1 of 1 START sql view model prices_schema.enrich_tables ........................ [RUN]
+[0m00:00:09.165596 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_coingecko_prices_schema, now model.allium_project.enrich_tables)
+[0m00:00:09.165770 [debug] [Thread-1 (]: Began compiling node model.allium_project.enrich_tables
+[0m00:00:09.169454 [debug] [Thread-1 (]: Writing injected SQL for node "model.allium_project.enrich_tables"
+[0m00:00:09.170424 [debug] [Thread-1 (]: Began executing node model.allium_project.enrich_tables
+[0m00:00:09.188709 [debug] [Thread-1 (]: Writing runtime sql for node "model.allium_project.enrich_tables"
+[0m00:00:09.189313 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m00:00:09.189499 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: BEGIN
+[0m00:00:09.189648 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:00:09.193491 [debug] [Thread-1 (]: SQL status: BEGIN in 0.004 seconds
+[0m00:00:09.193699 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m00:00:09.193886 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+
+  create view "coingecko"."prices_schema"."enrich_tables__dbt_tmp"
+    
+    
+  as (
+    -- Strategy:
+-- Transcode erc20_token_transfer_table's token_address + chain as ethereum into a coingecko token_id
+-- Then, JOIN against the prices_schema.query_prices view from Part 1 to get prices
+-- Get the price corresponding to the block time stamp from prices_schema.query_prices
+-- query_prices has a resolution of 5 minutes. normalize the block_timestamp to 5 mins too
+-- For simplicity, we made raw amount and amount the same for now.
+-- raw amount seems to be the amount but in smallest denominations eg wei
+SELECT
+    t.transaction_hash,
+    t.event_index,
+    t.from_address,
+    t.to_address,
+    t.token_address,
+    t.token_name,
+    t.token_symbol,
+    p.amount AS amount,
+    p.amount AS raw_amount,
+    t.block_timestamp,
+    t.block_number,
+    t.block_hash
+FROM prices_schema.erc20_token_transfer_table t
+JOIN prices_schema.coin_mapping_table cm
+    ON cm.blockchain = 'ethereum' AND t.token_address = cm.contract_address
+LEFT JOIN LATERAL (
+    SELECT p.price as amount
+    FROM prices_schema.query_prices p
+    WHERE p.coin_id = cm.coin_id
+      AND p.time_of_price = to_timestamp(floor(EXTRACT('epoch' FROM t.block_timestamp) / 300) * 300)
+    ORDER BY p.time_of_price DESC
+    LIMIT 1
+) p ON TRUE
+  );
+[0m00:00:09.210289 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.016 seconds
+[0m00:00:09.213983 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m00:00:09.214256 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+alter table "coingecko"."prices_schema"."enrich_tables__dbt_tmp" rename to "enrich_tables"
+[0m00:00:09.215326 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m00:00:09.223604 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: COMMIT
+[0m00:00:09.223870 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m00:00:09.224040 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: COMMIT
+[0m00:00:09.224882 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m00:00:09.228541 [debug] [Thread-1 (]: Applying DROP to: "coingecko"."prices_schema"."enrich_tables__dbt_backup"
+[0m00:00:09.230875 [debug] [Thread-1 (]: Using postgres connection "model.allium_project.enrich_tables"
+[0m00:00:09.231075 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "allium_project", "target_name": "dev", "node_id": "model.allium_project.enrich_tables"} */
+drop view if exists "coingecko"."prices_schema"."enrich_tables__dbt_backup" cascade
+[0m00:00:09.231592 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m00:00:09.232981 [debug] [Thread-1 (]: On model.allium_project.enrich_tables: Close
+[0m00:00:09.233718 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd1dd5223-d7d6-412a-a05e-c667ab5b16fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104550d40>]}
+[0m00:00:09.234075 [info ] [Thread-1 (]: 1 of 1 OK created sql view model prices_schema.enrich_tables ................... [[32mCREATE VIEW[0m in 0.07s]
+[0m00:00:09.234398 [debug] [Thread-1 (]: Finished running node model.allium_project.enrich_tables
+[0m00:00:09.235132 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:09.235324 [debug] [MainThread]: On master: BEGIN
+[0m00:00:09.235536 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:00:09.239464 [debug] [MainThread]: SQL status: BEGIN in 0.004 seconds
+[0m00:00:09.239669 [debug] [MainThread]: On master: COMMIT
+[0m00:00:09.239804 [debug] [MainThread]: Using postgres connection "master"
+[0m00:00:09.239920 [debug] [MainThread]: On master: COMMIT
+[0m00:00:09.240137 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m00:00:09.240284 [debug] [MainThread]: On master: Close
+[0m00:00:09.240454 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:00:09.240571 [debug] [MainThread]: Connection 'model.allium_project.enrich_tables' was properly closed.
+[0m00:00:09.240702 [info ] [MainThread]: 
+[0m00:00:09.240846 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.16 seconds (0.16s).
+[0m00:00:09.241129 [debug] [MainThread]: Command end result
+[0m00:00:09.254301 [info ] [MainThread]: 
+[0m00:00:09.254587 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:00:09.254747 [info ] [MainThread]: 
+[0m00:00:09.254984 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m00:00:09.256147 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.47939524, "process_in_blocks": "0", "process_kernel_time": 0.136844, "process_mem_max_rss": "122880000", "process_out_blocks": "0", "process_user_time": 0.897176}
+[0m00:00:09.256462 [debug] [MainThread]: Command `dbt run` succeeded at 00:00:09.256409 after 0.48 seconds
+[0m00:00:09.256668 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d9c3e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107794f50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c02120>]}
+[0m00:00:09.256851 [debug] [MainThread]: Flushing usage events

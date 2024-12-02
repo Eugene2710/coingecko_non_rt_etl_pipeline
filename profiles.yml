@@ -1,0 +1,11 @@
+allium_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: ''
+      password: ''
+      dbname: coingecko
+      schema: prices_schema
+      port: 5432

@@ -1,0 +1,2 @@
+class CoinGeckoClientError(Exception):
+    pass
